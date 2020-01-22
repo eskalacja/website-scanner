@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  website-scanner-dev:
+    image: website-scanner-dev
+    container_name: website-scanner-dev
+    build:
+      context: .
+    volumes:
+      - ./app:/app
+    command: sh -c "yarn install && tail -F /dev/null"
+    ports:
+      - "3060:3060"
