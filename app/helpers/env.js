@@ -1,12 +1,11 @@
 const getEnv = (key) => {
-    if (process.env[key]) {
-        return process.env[key];
-    }
+  if (process.env[key]) {
+    return process.env[key];
+  }
 
-    console.warn(`Cannot find env variable for key: ${key}`);
-    return '';
-}
+  throw new Error(`Cannot find env variable for key: ${key}`);
+};
 
 module.exports = {
-    getEnv,
-}
+  getEnv,
+};
