@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const { Result } = require('./classes/Result');
 
 const evaluateFindLinks = () => {
   const links = document.querySelectorAll('a');
@@ -8,61 +9,12 @@ const evaluateFindLinks = () => {
   return hrefs;
 };
 
-const visitPage = async (page, url) => {
-  await page.goto(url);
-  const currentUrl = page.url();
-  const currentUrlElement = new URL(currentUrl);
-  console.log(currentUrlElement);
+const visitPage = async (page, link) => {
+  await page.goto(link.href);
 
   const links = await page.evaluate(evaluateFindLinks);
-  const urls = links.map((href) => {
-    try {
-      const urlElement = new URL(href);
 
-      return {
-        href: urlElement.href,
-        origin: urlElement.origin,
-        pathname: urlElement.pathname,
-        hash: urlElement.hash,
-        protocol: urlElement.protocol,
-      };
-    } catch (error) {
-      return {
-        href,
-        error,
-      };
-    }
-  });
-
-  const { samePage, local, external, other, errored } = urls.reduce((acc, curr) => {
-    switch (true) {
-      case curr.error:
-        acc.errored.push(curr);
-        break;
-      case (['http:', 'https:'].includes(curr.protocol) === false):
-        acc.other.push(curr);
-        break;
-      case (curr.origin !== currentUrlElement.origin):
-        acc.external.push(curr);
-        break;
-      case (`${curr.origin}${curr.pathname}` === `${currentUrlElement.origin}${currentUrlElement.pathname}`):
-        acc.samePage.push(curr);
-        break;
-      default:
-        acc.local.push(curr);
-    }
-
-    return acc;
-  }, {
-    samePage: [],
-    local: [],
-    external: [],
-    other: [],
-    errored: [],
-  });
-
-  console.log({ samePage, local, external, other });
-  return urls;
+  return links;
 };
 
 const scan = async (rootUrl) => {
@@ -71,8 +23,19 @@ const scan = async (rootUrl) => {
     args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox'],
   });
 
+  const result = new Result();
+  result.addPage(rootUrl);
+
+  const [, rootLink] = result.links.entries().next().value;
+
   const page = await browser.newPage();
-  await visitPage(page, rootUrl);
+  const urls = await visitPage(page, rootLink, result);
+
+  for (const u of urls) {
+    result.addPage(u, rootLink);
+  }
+
+  console.log(result);
 
   await browser.close();
 };

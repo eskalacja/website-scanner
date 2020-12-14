@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`classes/Link should create a link with a parent 1`] = `
+Link {
+  "error": undefined,
+  "hash": "",
+  "href": "https://example.com/en",
+  "isChecked": false,
+  "normalizedHref": "https://example.com/en",
+  "origin": "https://example.com",
+  "parents": Map {
+    "https://example.com/" => Link {
+      "error": undefined,
+      "hash": "",
+      "href": "https://example.com/",
+      "isChecked": false,
+      "normalizedHref": "https://example.com/",
+      "origin": "https://example.com",
+      "parents": Map {},
+      "pathname": "/",
+      "protocol": "https:",
+      "search": "",
+      "type": 1,
+    },
+  },
+  "pathname": "/en",
+  "protocol": "https:",
+  "search": "",
+  "type": 1,
+}
+`;
+
+exports[`classes/Link should create a root link 1`] = `
+Link {
+  "error": undefined,
+  "hash": "",
+  "href": "https://example.com/",
+  "isChecked": false,
+  "normalizedHref": "https://example.com/",
+  "origin": "https://example.com",
+  "parents": Map {},
+  "pathname": "/",
+  "protocol": "https:",
+  "search": "",
+  "type": 1,
+}
+`;

@@ -6,5 +6,8 @@
     "no-await-in-loop": "off",
     "no-restricted-syntax": "off",
     "no-console": "off"
+  },
+  "env": {
+    "jest": true
   }
 }
