@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off",
+    "no-console": "off"
+  }
+}

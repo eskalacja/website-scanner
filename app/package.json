@@ -8,5 +8,10 @@
   "private": false,
   "dependencies": {
     "puppeteer": "5.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
   }
 }
