@@ -8,6 +8,8 @@ services:
       context: .
     volumes:
       - ./app:/app
-    command: sh -c "yarn install && tail -F /dev/null"
+    command: sh -c "echo "ready" && tail -F /dev/null"
+    environment:
+      - APP_ROOT_URL=https://agentslug.com
     ports:
       - "3060:3060"

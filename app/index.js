@@ -1,15 +1,10 @@
-const puppeteer = require('puppeteer');
+const { getEnv } = require('./helpers/env');
+const { scan } = require('./scanner');
 
 const main = async () => {
-  const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser',
-    args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox']
-  });
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
-  await page.screenshot({path: 'example.png'});
+  const rootUrl = getEnv('APP_ROOT_URL');
 
-  await browser.close();
+  await scan(rootUrl);
 };
 
 main();
