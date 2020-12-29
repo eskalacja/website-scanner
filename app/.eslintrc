@@ -5,7 +5,8 @@
     "arrow-parens": "off",
     "no-await-in-loop": "off",
     "no-restricted-syntax": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-param-reassign": "off"
   },
   "env": {
     "jest": true
