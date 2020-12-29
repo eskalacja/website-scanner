@@ -8,11 +8,11 @@ class Result {
     this.links = new Map();
   }
 
-  addPage(url, parentUrl) {
+  addPage(url, parentLink) {
     let parent;
 
-    if (parentUrl) {
-      parent = Link.fromString(parentUrl);
+    if (parentLink) {
+      parent = parentLink;
     }
 
     const link = Link.fromString(url, parent);
@@ -25,6 +25,16 @@ class Result {
     }
 
     this.links.set(link.normalizedHref, link);
+  }
+
+  getUnchecked(type) {
+    for (const [, link] of this.links) {
+      if (link.isChecked === false && link.type === type) {
+        return link;
+      }
+    }
+
+    return null;
   }
 }
 

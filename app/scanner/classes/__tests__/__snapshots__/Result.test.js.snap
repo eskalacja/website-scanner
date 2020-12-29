@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`classes/Result create instance 1`] = `
+Result {
+  "links": Map {
+    "https://example.com/" => Link {
+      "error": undefined,
+      "hash": "",
+      "href": "https://example.com/",
+      "isChecked": true,
+      "normalizedHref": "https://example.com/",
+      "origin": "https://example.com",
+      "parents": Map {},
+      "pathname": "/",
+      "protocol": "https:",
+      "search": "",
+      "type": 1,
+    },
+  },
+}
+`;
