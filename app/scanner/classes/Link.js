@@ -70,6 +70,12 @@ class Link {
     // eslint-disable-next-line guard-for-in
     for (const key in u) {
       const value = u[key];
+      if (value === 'null') {
+        obj[key] = null;
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
       if (typeof value !== 'string') {
         // eslint-disable-next-line no-continue
         continue;
