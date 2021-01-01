@@ -44,21 +44,20 @@ describe('classes/Result', () => {
   });
 
   it('get untested internal page', () => {
-    const page = instance.getUnchecked(LinkTypes.INTERNAL);
+    const page = instance.getUnchecked();
 
-    expect(page.type).toBe(LinkTypes.INTERNAL);
+    expect(page.isChecked).toBe(false);
   });
 
-  it('get no untested internal page', () => {
-    const page = instance.getUnchecked(LinkTypes.INTERNAL);
-    page.isChecked = true;
+  it('.filter', () => {
+    const externals = instance.filter((link) => link.type === LinkTypes.EXTERNAL);
 
-    expect(instance.getUnchecked(LinkTypes.INTERNAL)).toBe(null);
+    expect(externals.length).toBe(1);
+    expect(externals[0].type).toBe(LinkTypes.EXTERNAL);
   });
 
-  it('get untested external page', () => {
-    const page = instance.getUnchecked(LinkTypes.EXTERNAL);
-
-    expect(page.type).toBe(LinkTypes.EXTERNAL);
+  it('.getUncrawled', () => {
+    const uncrawled = instance.getUncrawled();
+    expect(uncrawled.type).toBe(LinkTypes.INTERNAL);
   });
 });

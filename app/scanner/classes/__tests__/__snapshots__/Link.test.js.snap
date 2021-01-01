@@ -6,6 +6,7 @@ Link {
   "hash": "",
   "href": "https://example.com/en",
   "isChecked": false,
+  "isCrawled": false,
   "normalizedHref": "https://example.com/en",
   "origin": "https://example.com",
   "parents": Map {
@@ -14,6 +15,7 @@ Link {
       "hash": "",
       "href": "https://example.com/",
       "isChecked": false,
+      "isCrawled": false,
       "normalizedHref": "https://example.com/",
       "origin": "https://example.com",
       "parents": Map {},
@@ -21,12 +23,14 @@ Link {
       "protocol": "https:",
       "search": "",
       "type": 1,
+      "uptimeReport": null,
     },
   },
   "pathname": "/en",
   "protocol": "https:",
   "search": "",
   "type": 1,
+  "uptimeReport": null,
 }
 `;
 
@@ -36,6 +40,7 @@ Link {
   "hash": "",
   "href": "https://example.com/",
   "isChecked": false,
+  "isCrawled": false,
   "normalizedHref": "https://example.com/",
   "origin": "https://example.com",
   "parents": Map {},
@@ -43,5 +48,6 @@ Link {
   "protocol": "https:",
   "search": "",
   "type": 1,
+  "uptimeReport": null,
 }
 `;

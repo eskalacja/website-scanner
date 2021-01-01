@@ -7,10 +7,12 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "dependencies": {
-    "puppeteer": "5.5.0"
+    "puppeteer": "5.5.0",
+    "uptime-check": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^7.15.0",

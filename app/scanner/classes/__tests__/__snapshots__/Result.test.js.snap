@@ -8,6 +8,7 @@ Result {
       "hash": "",
       "href": "https://example.com/",
       "isChecked": true,
+      "isCrawled": false,
       "normalizedHref": "https://example.com/",
       "origin": "https://example.com",
       "parents": Map {},
@@ -15,6 +16,7 @@ Result {
       "protocol": "https:",
       "search": "",
       "type": 1,
+      "uptimeReport": null,
     },
   },
 }

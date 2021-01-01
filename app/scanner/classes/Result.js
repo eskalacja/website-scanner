@@ -1,4 +1,4 @@
-const { Link } = require('./Link');
+const { Link, LinkTypes } = require('./Link');
 
 /**
  * @property {Map<Link>} links
@@ -27,14 +27,36 @@ class Result {
     this.links.set(link.normalizedHref, link);
   }
 
-  getUnchecked(type) {
+  getUnchecked() {
+    return this.find((link) => (
+      link.isChecked === false && [LinkTypes.INTERNAL, LinkTypes.EXTERNAL].includes(link.type)
+    ));
+  }
+
+  getUncrawled() {
+    return this.find((link) => link.type === LinkTypes.INTERNAL && link.isCrawled === false);
+  }
+
+  find(comparer) {
     for (const [, link] of this.links) {
-      if (link.isChecked === false && link.type === type) {
+      if (comparer(link)) {
         return link;
       }
     }
 
     return null;
+  }
+
+  filter(tester) {
+    const result = [];
+
+    for (const [, link] of this.links) {
+      if (tester(link)) {
+        result.push(link);
+      }
+    }
+
+    return result;
   }
 }
 

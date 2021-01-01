@@ -55,7 +55,9 @@ class Link {
     }
 
     this.isChecked = false;
+    this.isCrawled = false;
     this.type = getLinkType(this, parent);
+    this.uptimeReport = null;
   }
 
   static get types() {
