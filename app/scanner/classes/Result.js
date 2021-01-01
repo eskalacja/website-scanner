@@ -58,6 +58,17 @@ class Result {
 
     return result;
   }
+
+  toReportJSON() {
+    const links = [...this.links].map(el => el[1]);
+
+
+    const report = links.map((l) => {
+      return l.toReportItem();
+    });
+
+    return report;
+  }
 }
 
 module.exports = { Result };

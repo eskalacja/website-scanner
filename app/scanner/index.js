@@ -33,7 +33,14 @@ const checkUptime = async (link) => {
     url: link.normalizedHref,
   });
 
-  link.uptimeReport = report;
+  const { httpCode, totalTime, status } = report;
+
+  link.uptimeReport = {
+    httpCode,
+    totalTime,
+    status,
+  };
+
   link.isChecked = true;
 };
 
@@ -74,7 +81,7 @@ const scan = async (rootUrl, sleepTime = 25) => {
     await processUptimeChecks(result);
   }
 
-  console.log(result);
+  console.log(result.toReportJSON());
 
   await browser.close();
 };

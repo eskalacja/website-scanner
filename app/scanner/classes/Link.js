@@ -4,6 +4,12 @@ const LinkTypes = {
   OTHER: 3,
 };
 
+const LinkTypesByKey = {
+  1: 'INTERNAL',
+  2: 'EXTERNAL',
+  3: 'OTHER'
+};
+
 const getLinkType = (link, parent) => {
   switch (true) {
     case link.error:
@@ -58,6 +64,16 @@ class Link {
     this.isCrawled = false;
     this.type = getLinkType(this, parent);
     this.uptimeReport = null;
+  }
+
+  toReportItem() {
+    return {
+      href: this.href,
+      normalizedHref: this.normalizedHref,
+      parents: [...this.parents].map(el => el[1]).map(el => el.toReportItem()),
+      type: LinkTypesByKey[this.type],
+      ...this.uptimeReport,
+    };
   }
 
   static get types() {
