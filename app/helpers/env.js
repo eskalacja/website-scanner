@@ -1,9 +1,14 @@
-const getEnv = (key) => {
+const getEnv = (key, required = false) => {
   if (process.env[key]) {
     return process.env[key];
   }
 
-  throw new Error(`Cannot find env variable for key: ${key}`);
+  if (required) {
+    throw new Error(`Cannot find env variable for key: ${key}`);
+  }
+
+  return null;
+
 };
 
 module.exports = {
