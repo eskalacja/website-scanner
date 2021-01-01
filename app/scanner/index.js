@@ -59,7 +59,6 @@ const scan = async (rootUrl, sleepTime = 25) => {
 
   const [, rootLink] = result.links.entries().next().value;
 
-
   const browserPage = await browser.newPage();
   const urls = await visitPage(browserPage, rootLink);
 
