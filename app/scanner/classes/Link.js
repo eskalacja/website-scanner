@@ -70,9 +70,16 @@ class Link {
     return {
       href: this.href,
       normalizedHref: this.normalizedHref,
-      parents: [...this.parents].map(el => el[1]).map(el => el.toReportItem()),
+      parents: [...this.parents].map(el => el[1]).map(el => el.toParentReportItem()),
       type: LinkTypesByKey[this.type],
       ...this.uptimeReport,
+    };
+  }
+
+  toParentReportItem() {
+    return {
+      href: this.href,
+      normalizedHref: this.normalizedHref,
     };
   }
 

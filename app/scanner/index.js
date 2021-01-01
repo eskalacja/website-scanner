@@ -1,5 +1,7 @@
 const puppeteer = require('puppeteer');
 const uptimeCheck = require('uptime-check');
+const { writeFileSync } = require('fs');
+const { resolve } = require('path');
 const { Result } = require('./classes/Result');
 const { LinkTypes } = require('./classes/Link');
 
@@ -81,7 +83,15 @@ const scan = async (rootUrl, sleepTime = 25) => {
     await processUptimeChecks(result);
   }
 
-  console.log(result.toReportJSON());
+  const report = result.toReportJSON();
+  console.log(report);
+
+  const outPathname = resolve(__dirname, '../result.json');
+  console.log(`Writing to ${outPathname}`);
+
+  writeFileSync(outPathname, JSON.stringify(report, null, 2));
+
+  console.log('Done, thank you.');
 
   await browser.close();
 };
