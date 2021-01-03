@@ -14,7 +14,6 @@ RUN apk add \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 WORKDIR /app
-
 COPY app .
 
 RUN yarn install
