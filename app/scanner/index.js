@@ -1,81 +1,26 @@
 const puppeteer = require('puppeteer');
-const uptimeCheck = require('uptime-check');
 const { writeFileSync } = require('fs');
 const { resolve } = require('path');
 const { Result } = require('./classes/Result');
 const { LinkTypes } = require('./classes/Link');
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const evaluateFindLinks = () => {
-  const links = document.querySelectorAll('a');
-
-  const hrefs = Array.from(links).filter((el) => el.href).map(el => el.href);
-
-  return hrefs;
-};
-
-const visitPage = async (page, link, logger) => {
-  logger(`Visiting ${link.href}`);
-  await page.goto(link.href);
-  link.isCrawled = true;
-
-  const links = await page.evaluate(evaluateFindLinks);
-
-  return links;
-};
-
-const processUrls = (result, urls, rootLink) => {
-  for (const u of urls) {
-    result.addPage(u, rootLink);
-  }
-};
-
-const checkUptime = async (link) => {
-  const report = await uptimeCheck({
-    url: link.normalizedHref,
-  });
-
-  const { httpCode, totalTime, status } = report;
-
-  link.uptimeReport = {
-    httpCode,
-    totalTime,
-    status,
-  };
-
-  link.isChecked = true;
-};
-
-const verboseLogger = (verbose) => {
-  if (verbose) {
-    return console.log;
-  }
-
-  return () => {};
-};
-
-const processUptimeChecks = async (result, logger) => {
-  let currentUnchecked;
-
-  // eslint-disable-next-line no-cond-assign
-  while (currentUnchecked = result.getUnchecked()) {
-    await sleep();
-    logger(`Checking ${currentUnchecked.normalizedHref}`);
-    await checkUptime(currentUnchecked);
-  }
-};
+const { Logger } = require('./classes/Logger');
+const {
+  visitPage,
+  processUrls,
+  sleep,
+  processUptimeChecks,
+} = require('./utils/procedures');
 
 const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
-  const logger = verboseLogger(verbose);
+  const logger = new Logger(verbose);
 
   const browser = await puppeteer.launch({
     executablePath: '/usr/bin/chromium-browser',
     args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox'],
   });
 
-  logger('Browser init done');
-  logger(`RootUrl is ${rootUrl}`);
+  logger.verbose('Browser init done');
+  logger.verbose(`RootUrl is ${rootUrl}`);
 
   const result = new Result();
   result.addPage(rootUrl);
@@ -86,7 +31,7 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
   const browserPage = await browser.newPage();
   const urls = await visitPage(browserPage, rootLink, logger);
 
-  logger(`Found ${urls.length} links on root page.`);
+  logger.verbose(`Found ${urls.length} links on root page.`);
 
   processUrls(result, urls, rootLink);
   await processUptimeChecks(result, logger);
@@ -101,14 +46,14 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
   }
 
   const report = result.toReportJSON();
-  console.log(report);
+  logger.out(report);
 
   const outPathname = resolve(__dirname, '../result.json');
-  logger(`Writing to ${outPathname}`);
+  logger.verbose(`Writing to ${outPathname}`);
 
   writeFileSync(outPathname, JSON.stringify(report, null, 2));
 
-  logger('Done, thank you.');
+  logger.verbose('Done, thank you.');
 
   await browser.close();
 };
