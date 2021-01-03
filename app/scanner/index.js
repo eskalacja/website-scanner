@@ -48,7 +48,7 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
   const report = result.toReportJSON();
   logger.out(report);
 
-  const outPathname = resolve(__dirname, '../result.json');
+  const outPathname = resolve(__dirname, '../output/result.json');
   logger.verbose(`Writing to ${outPathname}`);
 
   writeFileSync(outPathname, JSON.stringify(report, null, 2));
