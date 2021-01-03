@@ -1,10 +1,10 @@
 # Docker based website scanner
 
+This docker image crawls your website and finds all dead links.
+
 ## Ongoing development
 
 This code is under active development.
-
-Soon you'll find here detailed information how to use it. But it's not there yet.
 
 ## How to run
 
