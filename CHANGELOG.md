@@ -1,3 +1,10 @@
+## [1.0.0-next.2](https://github.com/eskalacja/website-scanner/compare/v1.0.0-next.1...v1.0.0-next.2) (2021-01-03)
+
+
+### Features
+
+* dummy release ([8e0c11d](https://github.com/eskalacja/website-scanner/commit/8e0c11de82d9f8c3d0a4850bc1c7619a09dd5651))
+
 ## 1.0.0-next.1 (2021-01-03)
 
 
