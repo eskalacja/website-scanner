@@ -1,11 +1,11 @@
 {
-  "name": "website-scanner",
+  "name": "@eskalacja/website-scanner",
   "version": "0.0.1",
   "main": "app/index.js",
   "repository": "git@gitlab.com:agentslug/website-scanner.git",
   "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "test": "jest",
     "start": "node index.js"
