@@ -18,6 +18,3 @@ WORKDIR /app
 COPY app .
 
 RUN yarn install
-
-ARG APP_ROOT_URL
-ENV APP_ROOT_URL $APP_ROOT_URL
