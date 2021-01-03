@@ -7,7 +7,11 @@
   "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "app"
+  ],
   "scripts": {
+    "test": "cd app/ && jest",
     "release": "semantic-release"
   },
   "devDependencies": {

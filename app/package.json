@@ -7,7 +7,6 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "jest",
     "start": "node index.js"
   },
   "dependencies": {
