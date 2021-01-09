@@ -12,7 +12,6 @@ const {
 } = require('./utils/procedures');
 
 const scan = async (rootUrl, { sleepTime, verbose = false }) => {
-  console.log(sleepTime);
   const logger = new Logger(verbose);
 
   const browser = await puppeteer.launch({
