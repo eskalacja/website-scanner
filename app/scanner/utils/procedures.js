@@ -43,12 +43,12 @@ const checkUptime = async (link) => {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const processUptimeChecks = async (result, logger) => {
+const processUptimeChecks = async (result, logger, sleepTime) => {
   let currentUnchecked;
 
   // eslint-disable-next-line no-cond-assign
   while (currentUnchecked = result.getUnchecked()) {
-    await sleep();
+    await sleep(sleepTime);
     logger.verbose(`Checking ${currentUnchecked.normalizedHref}`);
     await checkUptime(currentUnchecked);
   }

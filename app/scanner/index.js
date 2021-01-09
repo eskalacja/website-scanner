@@ -11,7 +11,8 @@ const {
   processUptimeChecks,
 } = require('./utils/procedures');
 
-const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
+const scan = async (rootUrl, { sleepTime, verbose = false }) => {
+  console.log(sleepTime);
   const logger = new Logger(verbose);
 
   const browser = await puppeteer.launch({
@@ -24,7 +25,7 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
 
   const result = new Result();
   result.addPage(rootUrl);
-  await processUptimeChecks(result, logger);
+  await processUptimeChecks(result, logger, sleepTime);
 
   const [, rootLink] = result.links.entries().next().value;
 
@@ -34,7 +35,7 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
   logger.verbose(`Found ${urls.length} links on root page.`);
 
   processUrls(result, urls, rootLink);
-  await processUptimeChecks(result, logger);
+  await processUptimeChecks(result, logger, sleepTime);
 
   let currentSubPage;
   // eslint-disable-next-line no-cond-assign
@@ -42,7 +43,7 @@ const scan = async (rootUrl, { sleepTime = 25, verbose = false }) => {
     await sleep(sleepTime);
     const subPageUrls = await visitPage(browserPage, currentSubPage, logger);
     processUrls(result, subPageUrls, rootLink);
-    await processUptimeChecks(result, logger);
+    await processUptimeChecks(result, logger, sleepTime);
   }
 
   const report = result.toReportJSON();
