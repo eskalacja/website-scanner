@@ -1,14 +1,13 @@
-const getEnv = (key, required = false) => {
+const getEnv = (key, { defaultValue } = {}) => {
   if (process.env[key]) {
     return process.env[key];
   }
 
-  if (required) {
+  if (typeof defaultValue === 'undefined') {
     throw new Error(`Cannot find env variable for key: ${key}`);
   }
 
-  return null;
-
+  return defaultValue;
 };
 
 module.exports = {
