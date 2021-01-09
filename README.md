@@ -16,5 +16,7 @@ Point 2. will run a pulled docker image that will check https://example.com webs
 That means, once the process is done, you will find result files in this directory.
 ## ENV variables
 
-- `APP_ROOT_URL` - required, url that scanner uses as a starting point (first page)
-- `APP_VERBOSE` - optional, if set (to anything that's not 0), app will log in verbose mode
+- `APP_ROOT_URL` - required, url that scanner uses as a starting point (first page).
+- `APP_VERBOSE=false` - optional, if set (to anything that's not 0), app will log in verbose mode.
+- `APP_SLEEP_TIME=25` - optional, how long (in ms) process will sleep between uptime tests and browsing next page.
+- `APP_TIMEOUT=600000` - after how long (in ms) process must abort running and exit with code 1.
