@@ -1,3 +1,16 @@
+## [1.1.0](https://github.com/eskalacja/website-scanner/compare/v1.0.0...v1.1.0) (2021-01-09)
+
+
+### Features
+
+* introduce APP_TIMEOUT env ([e6ab930](https://github.com/eskalacja/website-scanner/commit/e6ab930f0b28f0ea29b2bf40923635d00c60e617))
+
+
+### Bug Fixes
+
+* add missing sleep between uptime checks, make sleepTime configurable (env) ([51088f8](https://github.com/eskalacja/website-scanner/commit/51088f843b1ffa32621e7de0783f571d83a440a8))
+* remove console log ([4a58cea](https://github.com/eskalacja/website-scanner/commit/4a58cea0f4bd6d6f5681e7e135781609708e0699))
+
 ## 1.0.0 (2021-01-03)
 
 
