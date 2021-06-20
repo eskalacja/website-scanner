@@ -12,17 +12,18 @@
   ],
   "scripts": {
     "test": "cd app/ && jest",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@semantic-release/release-notes-generator": "^9.0.1",
-    "conventional-changelog-conventionalcommits": "^4.4.0",
-    "husky": "^4.3.0",
-    "semantic-release": "^17.1.2"
+    "@semantic-release/release-notes-generator": "^9.0.3",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
+    "husky": "^6.0.0",
+    "semantic-release": "^17.4.4"
   }
 }
