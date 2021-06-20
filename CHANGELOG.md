@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/eskalacja/website-scanner/compare/v1.2.0...v1.3.0) (2021-06-20)
+
+
+### Features
+
+* upgrade dependencies ([7cfa75a](https://github.com/eskalacja/website-scanner/commit/7cfa75a439cfa378b803dee83f0dc87f53192b4d))
+
+
+### Bug Fixes
+
+* fix build by skipping hooks on CI ([92ede0a](https://github.com/eskalacja/website-scanner/commit/92ede0a756f5d5acef59c0e8598224cbbd7c8065))
+
 ## [1.2.0](https://github.com/eskalacja/website-scanner/compare/v1.1.0...v1.2.0) (2021-06-20)
 
 
