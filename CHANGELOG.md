@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/eskalacja/website-scanner/compare/v1.1.0...v1.2.0) (2021-06-20)
+
+
+### Features
+
+* upgrade docker base image ([21b9e13](https://github.com/eskalacja/website-scanner/commit/21b9e134c0f58991446c294d15070e5d5cd9813f))
+
 ## [1.1.0](https://github.com/eskalacja/website-scanner/compare/v1.0.0...v1.1.0) (2021-01-09)
 
 
