@@ -14,8 +14,11 @@ RUN apk add \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 WORKDIR /app
-COPY app .
+COPY app/package.json ./package.json
+COPY app/yarn.lock ./yarn.lock
 
 RUN yarn install
+
+COPY app ./
 
 CMD node index.js
