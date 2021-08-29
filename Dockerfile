@@ -8,7 +8,8 @@ RUN apk add \
       freetype-dev \
       harfbuzz \
       ca-certificates \
-      ttf-freefont
+      ttf-freefont \
+      tini
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -20,5 +21,7 @@ COPY app/yarn.lock ./yarn.lock
 RUN yarn install
 
 COPY app ./
+
+ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD node index.js
