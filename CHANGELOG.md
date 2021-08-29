@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/eskalacja/website-scanner/compare/v1.3.0...v1.3.1) (2021-08-29)
+
+
+### Bug Fixes
+
+* make sure PID 1 is busy ([8ec9411](https://github.com/eskalacja/website-scanner/commit/8ec941117fd1456dab875884c31ac3da21588d3b))
+
 ## [1.3.0](https://github.com/eskalacja/website-scanner/compare/v1.2.0...v1.3.0) (2021-06-20)
 
 
