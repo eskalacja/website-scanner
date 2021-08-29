@@ -4,7 +4,6 @@ on:
       - master
       - next
   pull_request:
-
 jobs:
   release:
     runs-on: ubuntu-latest
