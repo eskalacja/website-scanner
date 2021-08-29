@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/eskalacja/website-scanner/compare/v1.3.1...v2.0.0) (2021-08-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* docker needs to run with CAP_SYS_ADMIN flag from now on
+
+### Features
+
+* run in sandboxed mode, as non priv. user ([d150603](https://github.com/eskalacja/website-scanner/commit/d1506038cec31792cff347b85ee6abb1f84a1c05))
+
 ### [1.3.1](https://github.com/eskalacja/website-scanner/compare/v1.3.0...v1.3.1) (2021-08-29)
 
 
