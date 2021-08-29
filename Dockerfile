@@ -22,6 +22,13 @@ RUN yarn install
 
 COPY app ./
 
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+    && mkdir -p /home/pptruser/Downloads /app \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /app
+
+USER pptruser
+
 ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD node index.js

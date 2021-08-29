@@ -16,7 +16,7 @@ const scan = async (rootUrl, { sleepTime, verbose = false }) => {
 
   const browser = await puppeteer.launch({
     executablePath: '/usr/bin/chromium-browser',
-    args: ['--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox'],
+    args: ['--disable-dev-shm-usage'],
   });
 
   logger.verbose('Browser init done');

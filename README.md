@@ -9,7 +9,7 @@ This code is under active development.
 ## How to run
 
 1. `docker pull eskalacja/website-scanner`
-2. `docker run -e APP_ROOT_URL=https://example.com -e APP_VERBOSE=1 -v "$(pwd)":/app/output eskalacja/website-scanner`
+2. `docker run --cap-add=SYS_ADMIN -e APP_ROOT_URL=https://example.com -e APP_VERBOSE=1 -v "$(pwd)":/app/output eskalacja/website-scanner`
 
 Point 2. will run a pulled docker image that will check https://example.com website, in verbose logging mode and will mount output directory to the current bash directory.
 
