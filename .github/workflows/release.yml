@@ -4,7 +4,7 @@ on:
       - master
       - next
     tags:
-      - v*
+      - v**
 
 jobs:
   release:
@@ -30,6 +30,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
+          tags: |
+            type=semver,pattern={{version}}
           images: |
             ghcr.io/${{ github.repository }}
       - name: Build and push Docker images
