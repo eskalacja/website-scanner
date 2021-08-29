@@ -1,3 +1,14 @@
+## [3.0.0](https://github.com/eskalacja/website-scanner/compare/v2.0.0...v3.0.0) (2021-08-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* there will be no new pushes to docker hub
+
+### Features
+
+* push to github registry instead of dockerhub ([3747921](https://github.com/eskalacja/website-scanner/commit/37479216af48ccc5d1b9a9633ae4859da93c59fb))
+
 ## [3.0.0-next.1](https://github.com/eskalacja/website-scanner/compare/v2.0.0...v3.0.0-next.1) (2021-08-29)
 
 
