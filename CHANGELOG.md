@@ -1,3 +1,10 @@
+## [3.3.0](https://github.com/eskalacja/website-scanner/compare/v3.2.0...v3.3.0) (2021-08-29)
+
+
+### Features
+
+* it should really do release on tag ([7965043](https://github.com/eskalacja/website-scanner/commit/7965043b8ce06e8adc62b6dc7929bbcdb00e90e7))
+
 ## [3.2.0](https://github.com/eskalacja/website-scanner/compare/v3.1.0...v3.2.0) (2021-08-29)
 
 
