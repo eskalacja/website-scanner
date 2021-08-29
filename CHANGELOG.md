@@ -1,3 +1,10 @@
+## [3.2.0](https://github.com/eskalacja/website-scanner/compare/v3.1.0...v3.2.0) (2021-08-29)
+
+
+### Features
+
+* try triggering tag builds with asterisk ([ebffde2](https://github.com/eskalacja/website-scanner/commit/ebffde24117beb6896968cca6c99f8ecb899fdd6))
+
 ## [3.1.0](https://github.com/eskalacja/website-scanner/compare/v3.0.0...v3.1.0) (2021-08-29)
 
 
