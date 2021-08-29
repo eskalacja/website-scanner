@@ -1,10 +1,3 @@
-## [3.0.0](https://github.com/eskalacja/website-scanner/compare/v2.0.0...v3.0.0) (2021-08-29)
-
-
-### ⚠ BREAKING CHANGES
-
-* there will be no new pushes to docker hub
-
 ### Features
 
 * make sure ci/cd pushes on tags ([cbfa45d](https://github.com/eskalacja/website-scanner/commit/cbfa45d70d292385c97feaef6ac85ace60010fe1))

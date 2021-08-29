@@ -20,6 +20,7 @@ module.exports = {
           'CHANGELOG.md',
           'package.json',
         ],
+       message: "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
       },
     ],
   ],
