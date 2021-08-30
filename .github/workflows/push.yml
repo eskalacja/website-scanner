@@ -1,6 +1,7 @@
 on:
-  create:
-
+  release:
+    types:
+      - created
 jobs:
   push:
     if: ${{ startsWith(github.ref, 'refs/tags/v') }}
