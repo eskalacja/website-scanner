@@ -1,10 +1,9 @@
 on:
-  release:
-    types:
-      - created
+  create:
 
 jobs:
   push:
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
