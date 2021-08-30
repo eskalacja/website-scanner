@@ -15,6 +15,39 @@ Point 2. will run a pulled docker image that will check https://example.com webs
 
 That means, once the process is done, you will find result files in this directory.
 
+## How to extend
+You might want to use this docker image as a base image for your Dockerfile
+
+You can copy the `CMD` part of this or write your own script that imports from `main.js`.
+
+Example:
+
+```Dockerfile
+# /Dockerfile - custom dockerfile in your project
+FROM ghcr.io/eskalacja/website-scanner:latest
+
+COPY runner.js .
+
+CMD node runner.js
+```
+
+```javascript
+// /runner.js
+const main = require('./main');
+
+const customRunner = async () => {
+  // Do some preparations
+
+  // Run the scanner as it would run from default CMD
+  // Don't forget the env variables
+  await main();
+
+  // Do some post processing. Keep in mind this has access to internal container /output folder.
+}
+
+customRunner();
+```
+
 ## Docker Hub deprecation!
 Warning: This container is no longer published on Docker Hub. Please use `ghcr.io` registry.
 
