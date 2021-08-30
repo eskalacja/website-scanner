@@ -1,3 +1,10 @@
+## [3.2.0](https://github.com/eskalacja/website-scanner/compare/v3.1.0...v3.2.0) (2021-08-30)
+
+
+### Features
+
+* support easy container extending ([9608848](https://github.com/eskalacja/website-scanner/commit/960884801a798b8f05c1cadd4428457855508c25))
+
 ## [3.2.0-next.1](https://github.com/eskalacja/website-scanner/compare/v3.1.0...v3.2.0-next.1) (2021-08-30)
 
 
