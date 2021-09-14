@@ -1,3 +1,10 @@
+## [3.5.0](https://github.com/eskalacja/website-scanner/compare/v3.4.0...v3.5.0) (2021-09-14)
+
+
+### Features
+
+* push docker image on tag ([e9011b1](https://github.com/eskalacja/website-scanner/commit/e9011b1ce5bf4ec4e173c4bf5bc522f7405ac4f7))
+
 ## [3.4.0](https://github.com/eskalacja/website-scanner/compare/v3.3.0...v3.4.0) (2021-08-30)
 
 
