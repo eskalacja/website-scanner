@@ -1,3 +1,10 @@
+## [3.4.0](https://github.com/eskalacja/website-scanner/compare/v3.3.0...v3.4.0) (2021-08-30)
+
+
+### Features
+
+* test release ([28a53c7](https://github.com/eskalacja/website-scanner/commit/28a53c74e640b455a111cbd53dd42ffca114a852))
+
 ## [3.3.0](https://github.com/eskalacja/website-scanner/compare/v3.2.0...v3.3.0) (2021-08-30)
 
 
