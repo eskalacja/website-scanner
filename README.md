@@ -2,9 +2,10 @@
 
 This docker image crawls your website and finds all dead links.
 
-## Ongoing development
+## What's under the hood
+As for now it's "just" a docker wrapper around [puppeteer](https://github.com/puppeteer/puppeteer/) Chromium driver.
 
-This code is under active development.
+When container runs, it uses Chromium to open the `APP_ROOT_URL` page and then starts crawling entire site looking for dead links.
 
 ## How to run
 
@@ -14,6 +15,12 @@ This code is under active development.
 Point 2. will run a pulled docker image that will check https://example.com website, in verbose logging mode and will mount output directory to the current bash directory.
 
 That means, once the process is done, you will find result files in this directory.
+
+`SYS_ADMIN` docker capability is required to make the browser run in sandbox mode.
+
+If you can't or don't want to use that capability, you can also run it in non-sandbox mode by adding another environmental variable:
+
+`docker run  -e APP_NO_SANDBOX=1 -e APP_ROOT_URL=https://example.com -e APP_VERBOSE=1 -v "$(pwd)":/app/output ghcr.io/eskalacja/website-scanner`
 
 ## How to extend
 You might want to use this docker image as a base image for your Dockerfile
@@ -57,3 +64,4 @@ Warning: This container is no longer published on Docker Hub. Please use `ghcr.i
 - `APP_VERBOSE=false` - optional, if set (to anything that's not 0), app will log in verbose mode.
 - `APP_SLEEP_TIME=25` - optional, how long (in ms) process will sleep between uptime tests and browsing next page.
 - `APP_TIMEOUT=600000` - after how long (in ms) process must abort running and exit with code 1.
+- `APP_NO_SANDBOX_MODE=1` - optional, if set (to anything that's not 0), app will use Chromium browser in a non-sandbox mode.

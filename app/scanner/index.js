@@ -11,12 +11,18 @@ const {
   processUptimeChecks,
 } = require('./utils/procedures');
 
-const scan = async (rootUrl, { sleepTime, verbose = false }) => {
+const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) => {
   const logger = new Logger(verbose);
 
+  const args = noSandbox ? [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+  ] : [
+    '--disable-dev-shm-usage',
+  ];
   const browser = await puppeteer.launch({
     executablePath: '/usr/bin/chromium-browser',
-    args: ['--disable-dev-shm-usage'],
+    args,
   });
 
   logger.verbose('Browser init done');
