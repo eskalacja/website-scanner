@@ -1,3 +1,10 @@
+## [3.7.0](https://github.com/eskalacja/website-scanner/compare/v3.6.0...v3.7.0) (2021-09-15)
+
+
+### Features
+
+* possible to run chromium in a no-sandbox mode ([c4bc9e8](https://github.com/eskalacja/website-scanner/commit/c4bc9e8873908046cadbd089cd68a6ef0e2139a5))
+
 ## [3.6.0](https://github.com/eskalacja/website-scanner/compare/v3.5.0...v3.6.0) (2021-09-14)
 
 
