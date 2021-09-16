@@ -62,6 +62,8 @@ const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) 
   logger.verbose('Done, thank you.');
 
   await browser.close();
+
+  return report;
 };
 
 module.exports = {

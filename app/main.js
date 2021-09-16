@@ -14,9 +14,11 @@ const main = async () => {
     process.exit(1);
   }, timeout);
 
-  await scan(rootUrl, { verbose, sleepTime, noSandbox });
+  const report = await scan(rootUrl, { verbose, sleepTime, noSandbox });
 
   clearTimeout(killSwitchTimeout);
+
+  return report;
 };
 
 module.exports = main;
