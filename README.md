@@ -34,7 +34,7 @@ Example:
 FROM ghcr.io/eskalacja/website-scanner:latest
 
 # Workdir cannot be /app if you use  your own package.json!
-WORKDIR /not_app
+WORKDIR /app/custom
 
 COPY runner.js .
 
@@ -46,8 +46,8 @@ CMD node runner.js
 
 ```javascript
 // /runner.js
-// Load main function from ../app folder where everything default lives.
-const main = require('../app/main');
+// Load main function from /app folder where everything default lives.
+const main = require('../main');
 
 const customRunner = async () => {
   // Do some preparations
