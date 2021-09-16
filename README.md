@@ -33,14 +33,21 @@ Example:
 # /Dockerfile - custom dockerfile in your project
 FROM ghcr.io/eskalacja/website-scanner:latest
 
+# Workdir cannot be /app if you use  your own package.json!
+WORKDIR /not_app
+
 COPY runner.js .
+
+# IF WORKDIR would be /app this would remove all main docker image node_modules
+COPY package.json yarn.lock ./
 
 CMD node runner.js
 ```
 
 ```javascript
 // /runner.js
-const main = require('./main');
+// Load main function from ../app folder where everything default lives.
+const main = require('../app/main');
 
 const customRunner = async () => {
   // Do some preparations
