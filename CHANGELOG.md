@@ -1,3 +1,10 @@
+## [3.8.0](https://github.com/eskalacja/website-scanner/compare/v3.7.0...v3.8.0) (2021-09-16)
+
+
+### Features
+
+* return report so extended images can do manipulations with js ([63c6cc0](https://github.com/eskalacja/website-scanner/commit/63c6cc03e3e0408cc0d82a77eda31ccb5f74fe86))
+
 ## [3.7.0](https://github.com/eskalacja/website-scanner/compare/v3.6.0...v3.7.0) (2021-09-15)
 
 
