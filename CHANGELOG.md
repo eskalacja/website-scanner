@@ -1,3 +1,12 @@
+## [3.9.0](https://github.com/eskalacja/website-scanner/compare/v3.8.0...v3.9.0) (2023-01-28)
+
+
+### Features
+
+* only visit documents ([2a40eb6](https://github.com/eskalacja/website-scanner/commit/2a40eb6e83ea2609901a46df50b149fc6fa5680a))
+* upgrade app deps ([81f7766](https://github.com/eskalacja/website-scanner/commit/81f7766707b34125a85b2dd1c8e305788b863230))
+* upgrade meta deps ([69314ef](https://github.com/eskalacja/website-scanner/commit/69314efad5779dd9164a464c82cf41ea027291df))
+
 ## [3.9.0-next.1](https://github.com/eskalacja/website-scanner/compare/v3.8.0...v3.9.0-next.1) (2023-01-28)
 
 
