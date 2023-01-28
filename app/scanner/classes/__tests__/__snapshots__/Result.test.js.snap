@@ -2,6 +2,7 @@
 
 exports[`classes/Result create instance 1`] = `
 Result {
+  "limit": undefined,
   "links": Map {
     "https://agentslug.com/" => Link {
       "error": undefined,
