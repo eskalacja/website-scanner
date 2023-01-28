@@ -8,13 +8,13 @@ class Result {
     this.links = new Map();
   }
 
-  addPage(url, parentLink) {
-    let parent;
+  addRootPage(url) {
+    const link = Link.fromString(url);
+    link.isDocument = true;
+    this.links.set(link.normalizedHref, link);
+  }
 
-    if (parentLink) {
-      parent = parentLink;
-    }
-
+  addPage(url, parent) {
     const link = Link.fromString(url, parent);
 
     if (this.links.has(link.normalizedHref)) {
@@ -34,7 +34,11 @@ class Result {
   }
 
   getUncrawled() {
-    return this.find((link) => link.type === LinkTypes.INTERNAL && link.isCrawled === false);
+    return this.find((link) => (
+      link.type === LinkTypes.INTERNAL
+      && link.isCrawled === false
+      && link.isDocument === true
+    ));
   }
 
   find(comparer) {
@@ -61,7 +65,6 @@ class Result {
 
   toReportJSON() {
     const links = [...this.links].map(el => el[1]);
-
 
     const report = links.map((l) => {
       return l.toReportItem();

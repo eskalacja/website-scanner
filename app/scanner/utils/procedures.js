@@ -30,14 +30,19 @@ const checkUptime = async (link) => {
     url: link.normalizedHref,
   });
 
-  const { httpCode, totalTime, status } = report;
+  const {
+    httpCode, totalTime, status, headers,
+  } = report;
 
   link.uptimeReport = {
     httpCode,
     totalTime,
     status,
+    headers,
   };
 
+  const contentType = headers?.['content-type'] ?? '';
+  link.isDocument = contentType.startsWith('text/html');
   link.isChecked = true;
 };
 

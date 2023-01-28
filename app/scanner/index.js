@@ -29,8 +29,12 @@ const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) 
   logger.verbose(`RootUrl is ${rootUrl}`);
 
   const result = new Result();
-  result.addPage(rootUrl);
+  await result.addRootPage(rootUrl);
   await processUptimeChecks(result, logger, sleepTime);
+
+  if (result.links.size === 0) {
+    throw new Error('Could not fetch home page');
+  }
 
   const [, rootLink] = result.links.entries().next().value;
 

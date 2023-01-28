@@ -3,14 +3,15 @@
 exports[`classes/Result create instance 1`] = `
 Result {
   "links": Map {
-    "https://example.com/" => Link {
+    "https://agentslug.com/" => Link {
       "error": undefined,
       "hash": "",
-      "href": "https://example.com/",
+      "href": "https://agentslug.com/",
       "isChecked": true,
       "isCrawled": false,
-      "normalizedHref": "https://example.com/",
-      "origin": "https://example.com",
+      "isDocument": undefined,
+      "normalizedHref": "https://agentslug.com/",
+      "origin": "https://agentslug.com",
       "parents": Map {},
       "pathname": "/",
       "protocol": "https:",
