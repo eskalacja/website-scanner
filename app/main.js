@@ -8,13 +8,21 @@ const main = async () => {
   const sleepTime = parseInt(getEnv('APP_SLEEP_TIME', { defaultValue: 25 }), 10);
   // Default timeout 10 minutes.
   const timeout = parseInt(getEnv('APP_TIMEOUT', { defaultValue: 600000 }), 10);
-
+  const limit = parseInt(
+    getEnv('APP_LINKS_LIMIT', { defaultValue: 0 }),
+    10,
+  );
   const killSwitchTimeout = setTimeout(() => {
     console.error(`Run took too long. Timed out (${timeout}ms)`);
     process.exit(1);
   }, timeout);
 
-  const report = await scan(rootUrl, { verbose, sleepTime, noSandbox });
+  const report = await scan(rootUrl, {
+    verbose,
+    sleepTime,
+    noSandbox,
+    limit,
+  });
 
   clearTimeout(killSwitchTimeout);
 
