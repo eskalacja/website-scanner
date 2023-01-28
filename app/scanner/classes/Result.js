@@ -1,11 +1,13 @@
 const { Link, LinkTypes } = require('./Link');
+const { ERROR_LIMIT_REACHED } = require('./Errors');
 
 /**
  * @property {Map<Link>} links
  */
 class Result {
-  constructor() {
+  constructor(limit) {
     this.links = new Map();
+    this.limit = limit;
   }
 
   addRootPage(url) {
@@ -15,6 +17,9 @@ class Result {
   }
 
   addPage(url, parent) {
+    if (this.limit && this.links.size >= this.limit) {
+      throw new ERROR_LIMIT_REACHED(`Limit reached after ${this.links.size}, limit: ${this.limit}`);
+    }
     const link = Link.fromString(url, parent);
 
     if (this.links.has(link.normalizedHref)) {

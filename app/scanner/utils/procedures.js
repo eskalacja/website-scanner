@@ -46,7 +46,9 @@ const checkUptime = async (link) => {
   link.isChecked = true;
 };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => {
+  setTimeout(resolve, ms);
+});
 
 const processUptimeChecks = async (result, logger, sleepTime) => {
   let currentUnchecked;

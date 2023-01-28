@@ -76,3 +76,4 @@ Warning: This container is no longer published on Docker Hub. Please use `ghcr.i
 - `APP_SLEEP_TIME=25` - optional, how long (in ms) process will sleep between uptime tests and browsing next page.
 - `APP_TIMEOUT=600000` - after how long (in ms) process must abort running and exit with code 1.
 - `APP_NO_SANDBOX_MODE=1` - optional, if set (to anything that's not 0), app will use Chromium browser in a non-sandbox mode.
+- `APP_LINKS_LIMIT=number` - optional, when set scan would stop after reaching the gathered links limit

@@ -10,10 +10,33 @@ const {
   sleep,
   processUptimeChecks,
 } = require('./utils/procedures');
+const { ERROR_LIMIT_REACHED } = require('./classes/Errors');
 
-const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) => {
+let limitReachedLogged = false;
+const makeRunWithLimits = (logger, func) => (...args) => {
+  try {
+    func(...args);
+  } catch (error) {
+    if (error instanceof ERROR_LIMIT_REACHED) {
+      if (!limitReachedLogged) {
+        logger.out('Links limit reached. Stopping gathering more links.');
+      }
+      limitReachedLogged = true;
+    } else {
+      throw error;
+    }
+  }
+  return undefined;
+};
+
+const scan = async (rootUrl, {
+  sleepTime,
+  verbose = false,
+  noSandbox = false,
+  limit,
+}) => {
   const logger = new Logger(verbose);
-
+  const processUrlsWithLimits = makeRunWithLimits(logger, processUrls);
   const args = noSandbox ? [
     '--no-sandbox',
     '--disable-setuid-sandbox',
@@ -28,7 +51,7 @@ const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) 
   logger.verbose('Browser init done');
   logger.verbose(`RootUrl is ${rootUrl}`);
 
-  const result = new Result();
+  const result = new Result(limit);
   await result.addRootPage(rootUrl);
   await processUptimeChecks(result, logger, sleepTime);
 
@@ -43,7 +66,7 @@ const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) 
 
   logger.verbose(`Found ${urls.length} links on root page.`);
 
-  processUrls(result, urls, rootLink);
+  processUrlsWithLimits(result, urls, rootLink);
   await processUptimeChecks(result, logger, sleepTime);
 
   let currentSubPage;
@@ -51,7 +74,7 @@ const scan = async (rootUrl, { sleepTime, verbose = false, noSandbox = false }) 
   while (currentSubPage = result.getUncrawled(LinkTypes.INTERNAL)) {
     await sleep(sleepTime);
     const subPageUrls = await visitPage(browserPage, currentSubPage, logger);
-    processUrls(result, subPageUrls, rootLink);
+    processUrlsWithLimits(result, subPageUrls, rootLink);
     await processUptimeChecks(result, logger, sleepTime);
   }
 
