@@ -1,3 +1,12 @@
+## [3.9.0-next.1](https://github.com/eskalacja/website-scanner/compare/v3.8.0...v3.9.0-next.1) (2023-01-28)
+
+
+### Features
+
+* only visit documents ([2a40eb6](https://github.com/eskalacja/website-scanner/commit/2a40eb6e83ea2609901a46df50b149fc6fa5680a))
+* upgrade app deps ([81f7766](https://github.com/eskalacja/website-scanner/commit/81f7766707b34125a85b2dd1c8e305788b863230))
+* upgrade meta deps ([69314ef](https://github.com/eskalacja/website-scanner/commit/69314efad5779dd9164a464c82cf41ea027291df))
+
 ## [3.8.0](https://github.com/eskalacja/website-scanner/compare/v3.7.0...v3.8.0) (2021-09-16)
 
 
@@ -144,7 +153,7 @@
 * fetch and group links from current page ([8739ecd](https://github.com/eskalacja/website-scanner/commit/8739ecd5a936d5fe95acad47f509a4e2002f4ad5))
 * gather links in a structured way ([4f239c1](https://github.com/eskalacja/website-scanner/commit/4f239c15e728208097b558e22707523f92579bf4))
 * move output files to /app/output for easier docker runs ([024dab4](https://github.com/eskalacja/website-scanner/commit/024dab4b568e92afe77dfb2b96379f1e55e7e62b))
-* output a normalized result ([dda3032](https://github.com/eskalacja/website-scanner/commit/dda3032600710cfc4ab698a95a67679d10ccb9bc))
+* output a normalized resultTest ([dda3032](https://github.com/eskalacja/website-scanner/commit/dda3032600710cfc4ab698a95a67679d10ccb9bc))
 * run simple scan ([c818f37](https://github.com/eskalacja/website-scanner/commit/c818f374e48004e188ad5c28d236fab94b2f549e))
 * save report to json ([7a6d250](https://github.com/eskalacja/website-scanner/commit/7a6d250d04b3d80cd6912359320375548e71537d))
 * scan all internal pages ([813609f](https://github.com/eskalacja/website-scanner/commit/813609f7788cc7197b6bf3522771480f893ebdb2))
@@ -173,7 +182,7 @@
 * fetch and group links from current page ([8739ecd](https://github.com/eskalacja/website-scanner/commit/8739ecd5a936d5fe95acad47f509a4e2002f4ad5))
 * gather links in a structured way ([4f239c1](https://github.com/eskalacja/website-scanner/commit/4f239c15e728208097b558e22707523f92579bf4))
 * move output files to /app/output for easier docker runs ([024dab4](https://github.com/eskalacja/website-scanner/commit/024dab4b568e92afe77dfb2b96379f1e55e7e62b))
-* output a normalized result ([dda3032](https://github.com/eskalacja/website-scanner/commit/dda3032600710cfc4ab698a95a67679d10ccb9bc))
+* output a normalized resultTest ([dda3032](https://github.com/eskalacja/website-scanner/commit/dda3032600710cfc4ab698a95a67679d10ccb9bc))
 * run simple scan ([c818f37](https://github.com/eskalacja/website-scanner/commit/c818f374e48004e188ad5c28d236fab94b2f549e))
 * save report to json ([7a6d250](https://github.com/eskalacja/website-scanner/commit/7a6d250d04b3d80cd6912359320375548e71537d))
 * scan all internal pages ([813609f](https://github.com/eskalacja/website-scanner/commit/813609f7788cc7197b6bf3522771480f893ebdb2))

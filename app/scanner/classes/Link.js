@@ -7,10 +7,11 @@ const LinkTypes = {
 const LinkTypesByKey = {
   1: 'INTERNAL',
   2: 'EXTERNAL',
-  3: 'OTHER'
+  3: 'OTHER',
 };
 
 const getLinkType = (link, parent) => {
+  // TODO: check content length before, if too big skip ip
   switch (true) {
     case link.error:
       return LinkTypes.OTHER;
@@ -64,6 +65,7 @@ class Link {
     this.isCrawled = false;
     this.type = getLinkType(this, parent);
     this.uptimeReport = null;
+    this.isDocument = undefined;
   }
 
   toReportItem() {

@@ -9,12 +9,22 @@ services:
     volumes:
       - ./app:/app
       - modules:/app/node_modules
-    command: sh -c "echo "ready" && tail -F /dev/null"
+    command: "yarn start"
     environment:
-      - APP_ROOT_URL=https://agentslug.com
+      - APP_ROOT_URL=http://test:8000
+      - APP_NO_SANDBOX=1
+      - APP_VERBOSE=1
+    depends_on:
+      - website-scanner-test-server
+  website-scanner-test-server:
+    image: website-scanner-test
+    container_name: website-scanner-test-server
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    command: "yarn server"
+    hostname: test
     ports:
-      - "3060:3060"
-    cap_add:
-      - SYS_ADMIN
+      - 8000:8000
 volumes:
   modules:

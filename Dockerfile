@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 # Installs latest Chromium (77) package.
 RUN apk add \
