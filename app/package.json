@@ -10,7 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "puppeteer": "10.2.0",
+    "puppeteer": "19.6.2",
     "uptime-check": "^4.1.0"
   }
 }
