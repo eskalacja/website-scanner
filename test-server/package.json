@@ -1,5 +1,5 @@
 {
-  "name": "@eskalacja/website-scanner",
+  "name": "@eskalacja/website-scanner-acceptance-test-server",
   "version": "0.0.1",
   "main": "app/index.js",
   "repository": "git@gitlab.com:agentslug/website-scanner.git",
@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "server": "node test-server",
+    "start": "node test-server.js"
   },
   "dependencies": {
-    "puppeteer": "10.2.0",
-    "uptime-check": "^4.1.0"
+    "express": "^4.17.1"
   }
 }

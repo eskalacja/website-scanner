@@ -7,11 +7,8 @@
   "author": "Szymon Nowicki <sznowicki@eskalacja.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "app"
-  ],
   "scripts": {
-    "test": "cd app/ && jest",
+    "test": "jest",
     "release": "semantic-release",
     "prepare": "husky install"
   },
@@ -23,7 +20,11 @@
     "@semantic-release/git": "^9.0.1",
     "@semantic-release/release-notes-generator": "^9.0.3",
     "conventional-changelog-conventionalcommits": "^4.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "husky": "^7.0.2",
-    "semantic-release": "^17.4.7"
+    "semantic-release": "^17.4.7",
+    "jest": "^27.2.0"
   }
 }

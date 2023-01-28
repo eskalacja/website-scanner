@@ -2,13 +2,13 @@ const { Result } = require('../Result');
 const { LinkTypes, Link } = require('../Link');
 
 describe('classes/Result', () => {
-  const parentUrl = 'https://example.com/';
-  const pageA = 'https://example.com/en';
-  const externalPage = 'https://ext.example.com/';
+  const parentUrl = 'https://agentslug.com/';
+  const pageA = 'https://agentslug.com/en';
+  const externalPage = 'http://example.com/';
 
   let instance;
   let parentLink;
-  it('create instance', () => {
+  it('create instance', async () => {
     instance = new Result();
     instance.addPage(parentUrl);
     parentLink = instance.links.get(parentUrl);
@@ -17,27 +17,29 @@ describe('classes/Result', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('add page', () => {
+  it('add page', async () => {
     instance.addPage(pageA, parentLink);
+    // Mark it as document
+    instance.links.get(pageA).isDocument = true;
     expect(instance.links.has(pageA)).toBe(true);
     expect(instance.links.get(pageA).parents.size).toBe(1);
   });
 
-  it('replace parent to already existing page', () => {
+  it('replace parent to already existing page', async () => {
     instance.addPage(pageA, parentLink);
     expect(instance.links.has(pageA)).toBe(true);
     expect(instance.links.get(pageA).type).toBe(LinkTypes.INTERNAL);
     expect(instance.links.get(pageA).parents.size).toBe(1);
   });
 
-  it('add parent to already existing page', () => {
-    const subParentLink = Link.fromString(`${parentUrl}/2`);
+  it('add parent to already existing page', async () => {
+    const subParentLink = await Link.fromString(`${parentUrl}/2`);
     instance.addPage(pageA, subParentLink);
     expect(instance.links.has(pageA)).toBe(true);
     expect(instance.links.get(pageA).parents.size).toBe(2);
   });
 
-  it('add external page', () => {
+  it('add external page', async () => {
     instance.addPage(externalPage, parentLink);
     expect(instance.links.has(externalPage)).toBe(true);
     expect(instance.links.get(externalPage).type).toBe(LinkTypes.EXTERNAL);

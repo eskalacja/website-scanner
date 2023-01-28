@@ -14,7 +14,7 @@ When container runs, it uses Chromium to open the `APP_ROOT_URL` page and then s
 
 Point 2. will run a pulled docker image that will check https://example.com website, in verbose logging mode and will mount output directory to the current bash directory.
 
-That means, once the process is done, you will find result files in this directory.
+That means, once the process is done, you will find resultTest files in this directory.
 
 `SYS_ADMIN` docker capability is required to make the browser run in sandbox mode.
 
@@ -33,8 +33,12 @@ Example:
 # /Dockerfile - custom dockerfile in your project
 FROM ghcr.io/eskalacja/website-scanner:latest
 
+# User must be same as main image user
+USER pptruser
+
 # Workdir cannot be /app if you use  your own package.json!
-WORKDIR /app/custom
+# Also to avoid permission issues it's best to keep it in the user home.
+WORKDIR /home/pptruser/
 
 COPY runner.js .
 
