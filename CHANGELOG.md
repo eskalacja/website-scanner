@@ -1,3 +1,10 @@
+## [3.10.0](https://github.com/eskalacja/website-scanner/compare/v3.9.0...v3.10.0) (2023-01-28)
+
+
+### Features
+
+* add APP_LINKS_LIMIT env ([9694d68](https://github.com/eskalacja/website-scanner/commit/9694d6891d5da4a6941c12ab59d059ecad650996))
+
 ## [3.9.0](https://github.com/eskalacja/website-scanner/compare/v3.8.0...v3.9.0) (2023-01-28)
 
 
