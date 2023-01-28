@@ -14,7 +14,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Prepare test
-        run: docker-compose up --exit-code-from=website-scanner-dev
+        run: sudo chmod 777 app/output && docker-compose up --exit-code-from=website-scanner-dev
       - name: Install
         run: yarn install
       - name: Test
