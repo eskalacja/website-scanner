@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/eskalacja/website-scanner/compare/v4.1.0...v4.1.1) (2023-01-29)
+
+
+### Bug Fixes
+
+* fix parent url always being root url ([18155d5](https://github.com/eskalacja/website-scanner/commit/18155d5d239eadb87f5e0659b2cb8864ae19167c))
+
 ## [4.1.0](https://github.com/eskalacja/website-scanner/compare/v4.0.0...v4.1.0) (2023-01-29)
 
 
