@@ -74,7 +74,7 @@ const scan = async (rootUrl, {
   while (currentSubPage = result.getUncrawled(LinkTypes.INTERNAL)) {
     await sleep(sleepTime);
     const subPageUrls = await visitPage(browserPage, currentSubPage, logger);
-    processUrlsWithLimits(result, subPageUrls, rootLink);
+    processUrlsWithLimits(result, subPageUrls, currentSubPage);
     await processUptimeChecks(result, logger, sleepTime);
   }
 
