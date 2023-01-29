@@ -647,10 +647,10 @@ unbzip2-stream@1.4.3:
     buffer "^5.2.1"
     through "^2.3.8"
 
-uptime-check@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/uptime-check/-/uptime-check-4.1.0.tgz#665267f14f961980594a5ad0ef67663b9baebd46"
-  integrity sha512-m2Z+qtEZysbezfHSU+apBfRugqqQ0hnySK3EeDig5FU3kvpNz9WFtIehR3FKso2Hz+1iOJHS5xCVUIejbwxQCg==
+uptime-check@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/uptime-check/-/uptime-check-4.2.0.tgz#0177c4f212e4f22e3a523786bf196b26abcc501e"
+  integrity sha512-ZOAMJBMrvrqG5lsTkNncYQUIke2PVqOPlLBwGAzp6x+HgLuP/siLvKeD+vha3tWzgNPWOoesKXvwmy0CpEElwA==
   dependencies:
     got "^11.8.2"
 

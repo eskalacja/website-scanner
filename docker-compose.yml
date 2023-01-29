@@ -14,6 +14,7 @@ services:
       - APP_ROOT_URL=http://test:8000
       - APP_NO_SANDBOX=1
       - APP_VERBOSE=1
+      - APP_UPTIME_CHECK_TIMEOUT=1
     depends_on:
       - website-scanner-test-server
   website-scanner-test-server:
@@ -24,6 +25,8 @@ services:
       dockerfile: test.Dockerfile
     command: "yarn server"
     hostname: test
+    volumes:
+      - ./test-server:/app
     ports:
       - 8000:8000
 volumes:

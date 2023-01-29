@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "puppeteer": "19.6.2",
-    "uptime-check": "^4.1.0"
+    "uptime-check": "^4.2.0"
   }
 }

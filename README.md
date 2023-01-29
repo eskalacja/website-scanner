@@ -77,3 +77,4 @@ Warning: This container is no longer published on Docker Hub. Please use `ghcr.i
 - `APP_TIMEOUT=0` - optional, after how long (in ms) process must abort running and exit with code 1, defaults to 0 which means it's disabled.
 - `APP_NO_SANDBOX_MODE=1` - optional, if set (to anything that's not 0), app will use Chromium browser in a non-sandbox mode.
 - `APP_LINKS_LIMIT=0` - optional, when set scan would stop after reaching the gathered links limit
+- `APP_UPTIME_CHECK_TIMEOUT=10` - optional, uptime check timeout (in seconds)

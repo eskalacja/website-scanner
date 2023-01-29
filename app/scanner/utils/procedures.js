@@ -1,4 +1,5 @@
 const uptimeCheck = require('uptime-check');
+const { getEnv } = require('../../helpers/env');
 
 const evaluateFindLinks = () => {
   // eslint-disable-next-line no-undef
@@ -26,24 +27,42 @@ const processUrls = (result, urls, rootLink) => {
 };
 
 const checkUptime = async (link) => {
-  const report = await uptimeCheck({
-    url: link.normalizedHref,
-  });
+  const timeOut = parseInt(
+    getEnv('APP_UPTIME_CHECK_TIMEOUT', {
+      defaultValue: 10,
+    }),
+    10,
+  );
 
-  const {
-    httpCode, totalTime, status, headers,
-  } = report;
+  try {
+    const report = await uptimeCheck({
+      url: link.normalizedHref,
+      timeOut,
+    });
+    const {
+      httpCode, totalTime, status, headers,
+    } = report;
 
-  link.uptimeReport = {
-    httpCode,
-    totalTime,
-    status,
-    headers,
-  };
+    link.uptimeReport = {
+      httpCode,
+      totalTime,
+      status,
+      headers,
+    };
 
-  const contentType = headers?.['content-type'] ?? '';
-  link.isDocument = contentType.startsWith('text/html');
-  link.isChecked = true;
+    const contentType = headers?.['content-type'] ?? '';
+    link.isDocument = contentType.startsWith('text/html');
+    link.isChecked = true;
+  } catch {
+    link.isChecked = true;
+    link.isDocument = false;
+    link.uptimeReport = {
+      httpCode: 0,
+      totalTime: 0,
+      status: false,
+      headers: {},
+    };
+  }
 };
 
 const sleep = (ms) => new Promise((resolve) => {

@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test-local": "rm -rf app/output/result.json && docker-compose up --build --exit-code-from=website-scanner-dev && yarn test",
+    "local:run": "dkr c up --exit-code-from=website-scanner-dev",
+    "local:test": "rm -rf app/output/result.json && yarn local:run && yarn test",
     "test": "jest",
     "release": "semantic-release",
     "prepare": "husky install"
