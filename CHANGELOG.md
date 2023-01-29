@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/eskalacja/website-scanner/compare/v3.11.0...v4.0.0) (2023-01-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* env APP_TIMEOUT is 0 by default (disabled)
+
+### Features
+
+* env APP_TIMEOUT variable is optional and set to 0 as default ([4e82a99](https://github.com/eskalacja/website-scanner/commit/4e82a9905cea619499c9145ae3955f30e5c5eb54))
+
 ## [3.11.0](https://github.com/eskalacja/website-scanner/compare/v3.10.0...v3.11.0) (2023-01-29)
 
 
