@@ -1,3 +1,10 @@
+## [4.1.0](https://github.com/eskalacja/website-scanner/compare/v4.0.0...v4.1.0) (2023-01-29)
+
+
+### Features
+
+* add APP_UPTIME_CHECK_TIMEOUT env, ensure not throw when uptime check throws ([bda99b9](https://github.com/eskalacja/website-scanner/commit/bda99b9f33aad14a1fa1254368706eee6e8a95ff))
+
 ## [4.0.0](https://github.com/eskalacja/website-scanner/compare/v3.11.0...v4.0.0) (2023-01-29)
 
 
