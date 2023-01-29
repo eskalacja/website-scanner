@@ -27,7 +27,9 @@ services:
     hostname: test
     volumes:
       - ./test-server:/app
+      - modules2:/app/node_modules
     ports:
       - 8000:8000
 volumes:
   modules:
+  modules2:
