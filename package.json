@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "local:run": "dkr c up --exit-code-from=website-scanner-dev",
+    "local:run": "docker-compose up --exit-code-from=website-scanner-dev",
     "local:test": "rm -rf app/output/result.json && yarn local:run && yarn test",
     "test": "jest",
     "release": "semantic-release",
